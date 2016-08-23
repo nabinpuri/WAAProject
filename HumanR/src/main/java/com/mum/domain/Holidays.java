@@ -1,5 +1,4 @@
-package HRMclasse;
-
+package com.mum.domain;
 import java.util.Date;
 
 public class Holidays {

@@ -1,4 +1,4 @@
-package HRMclasse;
+package com.mum.domain;
 
 import java.util.Date;
 
