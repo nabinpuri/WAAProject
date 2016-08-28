@@ -3,18 +3,33 @@
  */
 package com.mum.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+import org.hibernate.validator.constraints.*;
 
 /**
  * @author ashok
  *
  */
+@Entity(name="address")
 public class Address {
-	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long addressId;
+	@Email(message="invalid email")
 	private String email;
+	@NotEmpty (message="cannot be empty")
 	private String street;
+	@NotEmpty(message="cannot be empty")
 	private String state;
+	@NotEmpty(message="cannot be empty")
 	private String city;
+	
+	@NotEmpty
+	@Range(min=10000,max=99999, message="Zipcode must have five Digit")
 	private String zipCode;
 
 	public String getEmail() {
