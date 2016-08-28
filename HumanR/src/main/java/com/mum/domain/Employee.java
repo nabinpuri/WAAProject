@@ -14,127 +14,154 @@ public class Employee {
 	private String firstName;
 	private String lastName;
 	private long SSN;
-	private long userId;// join column,, foreign key
-	private long departmentId;// foreign key
-	private long postId;// foreign key
-	private long addressId;//foreign
-	private long phoneId;
-	private long supervisedByI;
+	// private User userId;// join column,, foreign key
+	private Department departmentId;// foreign key
+	private Post postId;// foreign key
+	private Address addressId;// foreign
+	private Phone phoneId;
+	private Employee supervisedById;
 	private Date DateOfBirth;
 	private Date JoinedDate;
 	private Date ContactDate;
 	private boolean inActive;
 	private Date createdDate;
-	private long createdBy;//id from users
+	private Employee createdBy;// id from users
 	private Date modifyDate;
-	private long modifyBy;// user id from user table
+	private Employee modifyBy;// user id from user table
+
 	public long getEmployeeId() {
 		return employeeId;
 	}
+
 	public void setEmployeeId(long employeeId) {
 		this.employeeId = employeeId;
 	}
+
 	public String getFirstName() {
 		return firstName;
 	}
+
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
+
 	public String getLastName() {
 		return lastName;
 	}
+
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+
 	public long getSSN() {
 		return SSN;
 	}
+
 	public void setSSN(long sSN) {
 		SSN = sSN;
 	}
-	public long getUserId() {
-		return userId;
-	}
-	public void setUserId(long userId) {
-		this.userId = userId;
-	}
-	public long getDepartmentId() {
-		return departmentId;
-	}
-	public void setDepartmentId(long departmentId) {
-		this.departmentId = departmentId;
-	}
-	public long getPostId() {
-		return postId;
-	}
-	public void setPostId(long postId) {
-		this.postId = postId;
-	}
-	public long getAddressId() {
-		return addressId;
-	}
-	public void setAddressId(long addressId) {
-		this.addressId = addressId;
-	}
-	public long getPhoneId() {
+
+	public Phone getPhoneId() {
 		return phoneId;
 	}
-	public void setPhoneId(long phoneId) {
+
+	public void setPhoneId(Phone phoneId) {
 		this.phoneId = phoneId;
 	}
-	public long getSupervisedByI() {
-		return supervisedByI;
+
+	public Employee getSupervisedById() {
+		return supervisedById;
 	}
-	public void setSupervisedByI(long supervisedByI) {
-		this.supervisedByI = supervisedByI;
+
+	public void setSupervisedById(Employee supervisedById) {
+		this.supervisedById = supervisedById;
 	}
+
 	public Date getDateOfBirth() {
 		return DateOfBirth;
 	}
+
 	public void setDateOfBirth(Date dateOfBirth) {
 		DateOfBirth = dateOfBirth;
 	}
+
 	public Date getJoinedDate() {
 		return JoinedDate;
 	}
+
 	public void setJoinedDate(Date joinedDate) {
 		JoinedDate = joinedDate;
 	}
+
 	public Date getContactDate() {
 		return ContactDate;
 	}
+
 	public void setContactDate(Date contactDate) {
 		ContactDate = contactDate;
 	}
+
 	public boolean isInActive() {
 		return inActive;
 	}
+
 	public void setInActive(boolean inActive) {
 		this.inActive = inActive;
 	}
+
 	public Date getCreatedDate() {
 		return createdDate;
 	}
+
 	public void setCreatedDate(Date createdDate) {
 		this.createdDate = createdDate;
 	}
-	public long getCreatedBy() {
-		return createdBy;
-	}
-	public void setCreatedBy(Long createdBy) {
-		this.createdBy = createdBy;
-	}
+
 	public Date getModifyDate() {
 		return modifyDate;
 	}
+
 	public void setModifyDate(Date modifyDate) {
 		this.modifyDate = modifyDate;
 	}
-	public long getModifyBy() {
+
+	public Department getDepartmentId() {
+		return departmentId;
+	}
+
+	public void setDepartmentId(Department departmentId) {
+		this.departmentId = departmentId;
+	}
+
+	public Post getPostId() {
+		return postId;
+	}
+
+	public void setPostId(Post postId) {
+		this.postId = postId;
+	}
+
+	public Address getAddressId() {
+		return addressId;
+	}
+
+	public void setAddressId(Address addressId) {
+		this.addressId = addressId;
+	}
+
+	public Employee getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(Employee createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public Employee getModifyBy() {
 		return modifyBy;
 	}
-	public void setModifyBy(Long modifyBy) {
+
+	public void setModifyBy(Employee modifyBy) {
 		this.modifyBy = modifyBy;
 	}
-	
 }
