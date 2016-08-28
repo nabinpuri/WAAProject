@@ -8,48 +8,34 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
-<script type="text/javascript" src="../resources/js/utility.js"></script>
 <script>
 	$(function() {
-		$("#leaveFromDateId").datepicker();
-	});
-	$(function() {
-		$("#leaveToDateId").datepicker();
+		$("#holidayDateId").datepicker();
 	});
 </script>
 </head>
 <body>
-	<form:form modelAttribute="leave" action="applyLeave">
+	<form:form modelAttribute="holidays" action="holidays">
 		<fieldset>
-			<legend>Apply Leave</legend>
+			<legend>Holiday List</legend>
 			<div class="form-group">
-				From Date:
+				Date:
 				<div class="col-lg-10">
-					<form:input id="leaveFromDateId" path="leaveFromDate" type="text"
-						class="form:input-large" />
-				</div>
-			</div>
-
-			<div class="form-group">
-				To Date:
-				<div class="col-lg-10">
-					<form:input id="leaveToDateId" path="leaveToDate" type="text"
+					<form:input id="holidayDateId" path="holidayDate" type="text"
 						class="form:input-large" />
 				</div>
 			</div>
 			<div class="form-group">
-				Description:
+				Reasons:
 				<div class="col-lg-10">
-					<form:textarea id="description" path="description" type="text"
+					<form:textarea id="reasonId" path="reason" type="text"
 						class="form:input-large" />
 				</div>
 			</div>
 			<div class="form-group">
 				<div class="col-lg-offset-2 col-lg-10">
-					<input type="submit" id="applyleaveId" class="btn btn-primary"
-						value="Apply Leave" />
+					<input type="submit" id="holidayId" class="btn btn-primary"
+						value="Add Holiday" />
 				</div>
 			</div>
 		</fieldset>

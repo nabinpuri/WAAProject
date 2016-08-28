@@ -16,9 +16,19 @@ import com.mum.domain.Leave;
  */
 @Controller
 public class LeaveController {
-	@RequestMapping(value = "/applyLeave", method = RequestMethod.GET)
+//	@Autowired
+//	LeaveService leaveService;
+
+	@RequestMapping(value = "/leave", method = RequestMethod.GET)
 	public String applyLeave(@ModelAttribute("leave") Leave leave) {
 		return "leaveForm";
+	}
+
+	@RequestMapping(value = "/leave", method = RequestMethod.POST)
+	public String saveLeave(@ModelAttribute("leave") Leave leave) {
+//		leaveService.save(leave);
+//		return "redirect:/leaveForm";
+		return "asd";
 	}
 
 }
