@@ -9,10 +9,22 @@ public class Leave {
   Date leaveToDate;
   String description;
   //replace by employye 
-  int approvedBy;
-  boolean isApproved;
+  Employee approvedBy;
+  public Employee getApprovedBy() {
+	return approvedBy;
+}
+public void setApprovedBy(Employee approvedBy) {
+	this.approvedBy = approvedBy;
+}
+public Employee getApplicant() {
+	return applicant;
+}
+public void setApplicant(Employee applicant) {
+	this.applicant = applicant;
+}
+boolean isApproved;
   //employye
-  int applicant;
+  Employee applicant;
   
 public long getLeaveid() {
 	return leaveid;

@@ -27,6 +27,7 @@ public class Employee {
 	private Date createdDate;
 	private Employee createdBy;// id from users
 	private Date modifyDate;
+
 	private Employee modifyBy;// user id from user table
 
 	public long getEmployeeId() {
