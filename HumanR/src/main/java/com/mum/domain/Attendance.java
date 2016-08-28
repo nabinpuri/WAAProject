@@ -9,8 +9,14 @@ public class Attendance {
   Time checkinTime;
   Time checkoutTime;
   //employee
-  int employeeid;
+  Employee employeeid;
   
+public Employee getEmployeeid() {
+	return employeeid;
+}
+public void setEmployeeid(Employee employeeid) {
+	this.employeeid = employeeid;
+}
 public long getAttendanceId() {
 	return attendanceId;
 }
