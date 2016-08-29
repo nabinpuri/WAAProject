@@ -48,7 +48,7 @@
    </bean>
    
    <!-- Scan for  transaction-based resources -->
-   		<context:component-scan base-package="com.mum.service.impl" />
+   		<context:component-scan base-package="com.mum.servicesimpl" />
    		<context:component-scan base-package="com.mum.domain" />
    		<context:component-scan base-package="com.mum.repository" />
 <!--   <context:component-scan base-package="mum.edu.controller" />

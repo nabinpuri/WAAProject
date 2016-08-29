@@ -8,15 +8,18 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 /**
- * @author ashok
+ * @author Nabin
  *
  */
-@Entity
+@Entity(name="department")
 public class Department {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long departmentId;
+	@NotEmpty (message="cannot be empty")
 	private String departmentName;
 	public long getDepartmentId() {
 		return departmentId;

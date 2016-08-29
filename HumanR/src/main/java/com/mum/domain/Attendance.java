@@ -15,7 +15,7 @@ import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-@Entity
+@Entity(name= "attendance")
 public class Attendance {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -30,17 +30,17 @@ public class Attendance {
 	@DateTimeFormat(pattern = "hh:mm:ss")
 	Time checkoutTime;
 	// employee
-	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn(name = "employeeId")
-	Employee employeeid;
+//	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+//	@JoinColumn(name = "employeeId")
+//	Employee employeeid;
 
-	public Employee getEmployeeid() {
-		return employeeid;
-	}
-
-	public void setEmployeeid(Employee employeeid) {
-		this.employeeid = employeeid;
-	}
+//	public Employee getEmployeeid() {
+//		return employeeid;
+//	}
+//
+//	public void setEmployeeid(Employee employeeid) {
+//		this.employeeid = employeeid;
+//	}
 
 	public long getAttendanceId() {
 		return attendanceId;

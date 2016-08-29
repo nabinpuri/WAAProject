@@ -13,6 +13,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.mum.domain.Department;
 
+@Controller
 @RequestMapping("/department")
 public class DepartmentController {
 	@RequestMapping({"/", "/List"})

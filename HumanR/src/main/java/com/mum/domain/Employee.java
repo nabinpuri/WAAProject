@@ -5,31 +5,139 @@ package com.mum.domain;
 
 import java.util.Date;
 
+import javax.persistence.*;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.validation.Valid;
+import javax.validation.constraints.*;
+
+import org.hibernate.validator.constraints.*;
+import org.springframework.format.annotation.DateTimeFormat;
+
 /**
- * @author ashok
+ * @author Nabin
  *
  */
+@Entity(name="employee")
 public class Employee {
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long employeeId;
+	@NotEmpty (message="cannot be empty")
 	private String firstName;
+	@NotEmpty (message="cannot be empty")
 	private String lastName;
+	@NotEmpty (message="cannot be empty")
 	private long SSN;
-	// private User userId;// join column,, foreign key
-	private Department departmentId;// foreign key
-	private Post postId;// foreign key
-	private Address addressId;// foreign
-	private Phone phoneId;
-	private Employee supervisedById;
+	
+	@NotNull(message="cannot be null")
+	@Valid
+	@OneToOne(fetch=FetchType.EAGER,cascade=CascadeType.ALL)
+	@JoinColumn(name="departmentId")
+	private Department department;// foreign key
+	
+	@NotNull(message="cannot be null")
+	@Valid
+	@OneToOne(fetch=FetchType.EAGER,cascade=CascadeType.ALL)
+	@JoinColumn(name="postId")
+	private Post post;// foreign key
+	
+	@NotNull(message="cannot be null")
+	@OneToOne(fetch=FetchType.EAGER,cascade=CascadeType.ALL)
+	@JoinColumn(name="addressId")
+	private Address address;// foreign
+	
+	@Valid
+	@OneToOne(fetch=FetchType.EAGER,cascade=CascadeType.ALL)
+	@JoinColumn(name="phoneId")
+	private Phone phone;
+	
+	@OneToOne(fetch=FetchType.LAZY,cascade=CascadeType.ALL)
+	@JoinColumn(name="supervisedbyID")
+	private Employee supervisedBy;
+	
+	@OneToOne(fetch=FetchType.EAGER,cascade=CascadeType.ALL)
+	@JoinColumn(name="createdBy")
+	private User createdBy;// id from users
+	
+	@OneToOne(fetch=FetchType.EAGER,cascade=CascadeType.ALL)
+	@JoinColumn(name="modifyby")
+	private User modifyBy;// user id from user table
+	
+	@Past
+	@NotNull
+	@DateTimeFormat(pattern = "MM-dd-yyyy")
 	private Date DateOfBirth;
+	@NotNull
+	@DateTimeFormat(pattern = "MM-dd-yyyy")
 	private Date JoinedDate;
-	private Date ContactDate;
+	
+	
+	@NotNull
+	@DateTimeFormat(pattern = "MM-dd-yyyy")
+	private Date ContractDate;
+	
 	private boolean inActive;
+	
+	@DateTimeFormat(pattern = "MM-dd-yyyy")
 	private Date createdDate;
-	private Employee createdBy;// id from users
+	
+	@DateTimeFormat(pattern = "MM-dd-yyyy")
 	private Date modifyDate;
 
-	private Employee modifyBy;// user id from user table
+	public User getCreatedBy() {
+		return createdBy;
+	}
 
+	public void setCreatedBy(User createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public User getModifyBy() {
+		return modifyBy;
+	}
+
+	public void setModifyBy(User modifyBy) {
+		this.modifyBy = modifyBy;
+	}
+	public Employee getSupervisedBy() {
+		return supervisedBy;
+	}
+
+	public void setSupervisedBy(Employee supervisedBy) {
+		this.supervisedBy = supervisedBy;
+	}
+	
+	public Phone getPhone() {
+		return phone;
+	}
+
+	public void setPhone(Phone phone) {
+		this.phone = phone;
+	}
+	public Post getPost() {
+		return post;
+	}
+
+	public void setPost(Post post) {
+		this.post = post;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+	
+	public Department getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
 	public long getEmployeeId() {
 		return employeeId;
 	}
@@ -62,22 +170,6 @@ public class Employee {
 		SSN = sSN;
 	}
 
-	public Phone getPhoneId() {
-		return phoneId;
-	}
-
-	public void setPhoneId(Phone phoneId) {
-		this.phoneId = phoneId;
-	}
-
-	public Employee getSupervisedById() {
-		return supervisedById;
-	}
-
-	public void setSupervisedById(Employee supervisedById) {
-		this.supervisedById = supervisedById;
-	}
-
 	public Date getDateOfBirth() {
 		return DateOfBirth;
 	}
@@ -95,11 +187,11 @@ public class Employee {
 	}
 
 	public Date getContactDate() {
-		return ContactDate;
+		return ContractDate;
 	}
 
 	public void setContactDate(Date contactDate) {
-		ContactDate = contactDate;
+		ContractDate = contactDate;
 	}
 
 	public boolean isInActive() {
@@ -126,43 +218,11 @@ public class Employee {
 		this.modifyDate = modifyDate;
 	}
 
-	public Department getDepartmentId() {
-		return departmentId;
+	public Date getContractDate() {
+		return ContractDate;
 	}
 
-	public void setDepartmentId(Department departmentId) {
-		this.departmentId = departmentId;
-	}
-
-	public Post getPostId() {
-		return postId;
-	}
-
-	public void setPostId(Post postId) {
-		this.postId = postId;
-	}
-
-	public Address getAddressId() {
-		return addressId;
-	}
-
-	public void setAddressId(Address addressId) {
-		this.addressId = addressId;
-	}
-
-	public Employee getCreatedBy() {
-		return createdBy;
-	}
-
-	public void setCreatedBy(Employee createdBy) {
-		this.createdBy = createdBy;
-	}
-
-	public Employee getModifyBy() {
-		return modifyBy;
-	}
-
-	public void setModifyBy(Employee modifyBy) {
-		this.modifyBy = modifyBy;
+	public void setContractDate(Date contractDate) {
+		ContractDate = contractDate;
 	}
 }

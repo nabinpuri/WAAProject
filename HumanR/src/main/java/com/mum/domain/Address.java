@@ -11,7 +11,7 @@ import javax.persistence.Id;
 import org.hibernate.validator.constraints.*;
 
 /**
- * @author ashok
+ * @author nabin
  *
  */
 @Entity(name="address")
@@ -30,7 +30,7 @@ public class Address {
 	
 	@NotEmpty
 	@Range(min=10000,max=99999, message="Zipcode must have five Digit")
-	private String zipCode;
+	private int zipCode;
 
 	public String getEmail() {
 		return email;
@@ -72,11 +72,11 @@ public class Address {
 		this.city = city;
 	}
 
-	public String getZipCode() {
+	public int getZipCode() {
 		return zipCode;
 	}
 
-	public void setZipCode(String zipCode) {
+	public void setZipCode(int zipCode) {
 		this.zipCode = zipCode;
 	}
 

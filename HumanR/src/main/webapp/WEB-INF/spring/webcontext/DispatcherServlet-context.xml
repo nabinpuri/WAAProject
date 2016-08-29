@@ -8,9 +8,10 @@
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
 
 
-	<mvc:annotation-driven/>
+	
 	
 	<context:component-scan base-package="com.mum" />
+	<mvc:annotation-driven validator="validator"/>
 	
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/views/" />
@@ -64,6 +65,15 @@ bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocal
         </property>
 	</bean>
 	
+	<bean id="messageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basename" value="classpath:errorMessages" />
+	</bean>
+
+	<bean id="validator"
+		class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+		<property name="validationMessageSource" ref="messageSource" />
+	</bean>
      
  
 </beans>

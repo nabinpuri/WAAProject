@@ -3,14 +3,27 @@
  */
 package com.mum.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+import org.hibernate.validator.constraints.Range;
+
 /**
  * @author ashok
  *
  */
+@Entity
 public class Phone {
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long phoneId;
+	@Range(min=100,max=999, message="phone prefix must have three Digit")
 	private int prefix;
+	@Range(min=100,max=999, message="phone prefix must have three Digit")
 	private int areaCode;
+	@Range(min=1000,max=9999, message="phone prefix must have four Digit")
 	private int number;
 
 	public long getPhoneId() {

@@ -16,6 +16,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.mum.domain.Employee;
 
+@Controller
 @RequestMapping("/employee")
 public class EmployeeController {
 

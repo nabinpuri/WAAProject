@@ -3,12 +3,14 @@
  */
 package com.mum.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.mum.domain.Leave;
+import com.mum.services.LeaveService;
 
 /**
  * @author ashok
@@ -16,8 +18,8 @@ import com.mum.domain.Leave;
  */
 @Controller
 public class LeaveController {
-//	@Autowired
-//	LeaveService leaveService;
+	@Autowired
+	LeaveService leaveService;
 
 	@RequestMapping(value = "/leave", method = RequestMethod.GET)
 	public String applyLeave(@ModelAttribute("leave") Leave leave) {

@@ -12,13 +12,13 @@ import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
-@Entity
+@Entity(name= "holidays")
 public class Holidays {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	long holidayId;
 	@NotNull
-	@DateTimeFormat(pattern = "dd/MM/YY")
+	@DateTimeFormat(pattern = "MM-DD-YYYY")
 	Date holidayDate;
 	@NotEmpty
 	@Size(min = 3, max = 100, message = "give me some valid reason")

@@ -2,21 +2,17 @@ package com.mum.domain;
 
 import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
-@Entity
+@Entity(name = "leaves")
 public class Leave {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -31,32 +27,32 @@ public class Leave {
 	@DateTimeFormat(pattern = "dd/MM/YY")
 	Date leaveToDate;
 	@NotEmpty
-	@Size(min=3, max = 500, message="description is short")
+	@Size(min = 3, max = 500, message = "description is short")
 	String description;
 	// replace by employye
-	@OneToOne(cascade= CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinColumn(name ="approvedById")
-	Employee approvedBy;
+	// @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	// @JoinColumn(name = "approvedById")
+	// Employee approvedBy;
 
-	public Employee getApprovedBy() {
-		return approvedBy;
-	}
+	// public Employee getApprovedBy() {
+	// return approvedBy;
+	// }
+	//
+	// public void setApprovedBy(Employee approvedBy) {
+	// this.approvedBy = approvedBy;
+	// }
 
-	public void setApprovedBy(Employee approvedBy) {
-		this.approvedBy = approvedBy;
-	}
-
-	public Employee getApplicant() {
-		return applicant;
-	}
-
-	public void setApplicant(Employee applicant) {
-		this.applicant = applicant;
-	}
+//	public Employee getApplicant() {
+//		return applicant;
+//	}
+//
+//	public void setApplicant(Employee applicant) {
+//		this.applicant = applicant;
+//	}
 
 	boolean isApproved;
 	// employye
-	Employee applicant;
+//	Employee applicant;
 
 	public long getLeaveid() {
 		return leaveid;

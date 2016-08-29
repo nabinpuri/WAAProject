@@ -2,13 +2,19 @@ package com.mum.servicesimpl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.mum.domain.Leave;
 import com.mum.repository.LeaveRepository;
 import com.mum.services.LeaveService;
 
-public class LeaveServiceImpl implements LeaveService{
-	
-	LeaveRepository leaveRepository;
+@Service
+@Transactional
+public class LeaveServiceImpl implements LeaveService {
+	@Autowired
+  LeaveRepository leaveRepository;
 
 	public List<Leave> getAll() {
 		// TODO Auto-generated method stub

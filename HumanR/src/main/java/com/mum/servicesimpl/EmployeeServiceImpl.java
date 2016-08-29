@@ -6,31 +6,31 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.mum.domain.Attendance;
-import com.mum.repository.AttendenceRepository;
-import com.mum.services.AttendenceService;
+import com.mum.domain.Employee;
+import com.mum.repository.EmployeeRepository;
+import com.mum.repository.HolidaysRepository;
+import com.mum.services.EmployeeService;
 @Service
 @Transactional
-public class AttendenceServiceImpl implements AttendenceService{
+public class EmployeeServiceImpl implements EmployeeService{
 	@Autowired
-	AttendenceRepository attendenceRepositorys;
-	
-	public List<Attendance> getAll() {
+	EmployeeRepository employeeRepository;
+	public List<Employee> getAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Attendance getOneByPRimaryId(Long id) {
+	public Employee getOneByPRimaryId(Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public int save(Attendance entity) {
+	public int save(Employee entity) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
-	public boolean delete(Attendance entity) {
+	public boolean delete(Employee entity) {
 		// TODO Auto-generated method stub
 		return false;
 	}
