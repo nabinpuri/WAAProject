@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.mum.domain.Department;
 import com.mum.domain.Post;
 import com.mum.repository.*;
 import com.mum.services.PostService;
@@ -15,8 +16,8 @@ public class PostServiceImpl implements PostService{
 	@Autowired
 	PostRepository postRepository;
 	public List<Post> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		System.out.println("inside repository call for post getall()");
+		return (List<Post>)postRepository.findAll();
 	}
 
 	public Post getOneByPRimaryId(Long id) {
