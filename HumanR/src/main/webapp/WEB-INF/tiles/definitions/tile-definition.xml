@@ -12,20 +12,51 @@
 		<put-attribute name="body" value="" />
 		<put-attribute name="footer" value="/WEB-INF/tiles/template/footer.jsp" />
 	</definition>
-
+<!-- ..........................Nidina...........................parts starts here -->
  	<definition name="welcome" extends="baseLayout">
 		<put-attribute name="title" value="Welcome" />
 		<put-attribute name="heading" value="Human Resource" />
  		<put-attribute name="body" value="/WEB-INF/views/welcome.jsp" />
 	</definition>
 	
-	<definition name="welcome" extends="baseLayout">
-		<put-attribute name="title" value="Welcome" />
+	<definition name="login" extends="baseLayout">
+		<put-attribute name="title" value="login" />
 		<put-attribute name="heading" value="Human Resource" />
  		<put-attribute name="body" value="/WEB-INF/views/login.jsp" />
 	</definition>
 	
+	<definition name="vacancyList" extends="baseLayout">
+		<put-attribute name="title" value="Vacnacy" />
+		<put-attribute name="heading" value="Human Resource" />
+ 		<put-attribute name="body" value="/WEB-INF/views/vacancyList.jsp" />
+	</definition>
 	
+	<!-- ..........................Nabin...........................parts starts here -->
+	<definition name="employeeList" extends="baseLayout">
+		<put-attribute name="title" value="Employee" />
+		<put-attribute name="heading" value="Human Resource" />
+ 		<put-attribute name="body" value="/WEB-INF/views/employeeList.jsp" />
+	</definition>
+	<definition name="departmentList" extends="baseLayout">
+		<put-attribute name="title" value="Department" />
+		<put-attribute name="heading" value="Human Resource" />
+ 		<put-attribute name="body" value="/WEB-INF/views/departmentList.jsp" />
+	</definition>
 	
-	 	
+	<!-- ..........................Ashok...........................parts starts here -->
+	<definition name="leaveList" extends="baseLayout">
+		<put-attribute name="title" value="Leave" />
+		<put-attribute name="heading" value="Human Resource" />
+ 		<put-attribute name="body" value="/WEB-INF/views/leaveList.jsp" />
+	</definition>
+	<definition name="holidaysList" extends="baseLayout">
+		<put-attribute name="title" value="Holidays" />
+		<put-attribute name="heading" value="Human Resource" />
+ 		<put-attribute name="body" value="/WEB-INF/views/holidaysList.jsp" />
+	</definition>
+	 	<definition name="attendenceList" extends="baseLayout">
+		<put-attribute name="title" value="Attendence" />
+		<put-attribute name="heading" value="Human Resource" />
+ 		<put-attribute name="body" value="/WEB-INF/views/attendenceList.jsp" />
+	</definition>
 </tiles-definitions>

@@ -20,8 +20,9 @@ import com.mum.domain.Employee;
 @RequestMapping("/employee")
 public class EmployeeController {
 
-	@RequestMapping({"/", "/List"})
+	@RequestMapping({"/", "/list"})
 	public String showemployeeList(Model model) {
+		System.out.println("inside employee controller");
 		return "employeeList";
 	}
 	

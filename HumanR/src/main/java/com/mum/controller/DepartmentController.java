@@ -1,4 +1,6 @@
 package com.mum.controller;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,12 +14,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.mum.domain.Department;
+import com.mum.services.DepartmentService;
 
 @Controller
 @RequestMapping("/department")
 public class DepartmentController {
-	@RequestMapping({"/", "/List"})
+	@Autowired 
+	DepartmentService departmentService;
+	
+	@RequestMapping({"/", "/list"})
 	public String showemployeeList(Model model) {
+		System.out.println("inside department controller");
+		List<Department> departmentList=departmentService.getAll();
+		model.addAttribute("departmentList",departmentList);
 		return "departmentList";
 	}
 	
