@@ -3,14 +3,10 @@ package com.mum.domain;
 import java.sql.Time;
 import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -21,7 +17,7 @@ public class Attendance {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	long attendanceId;
 	@NotNull
-	@DateTimeFormat(pattern = "dd/MM/YY")
+	@DateTimeFormat(pattern = "yyyy-mm-dd")
 	Date date;
 	@NotNull
 	@DateTimeFormat(pattern = "hh:mm:ss")

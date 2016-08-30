@@ -18,7 +18,7 @@ public class Holidays {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	long holidayId;
 	@NotNull
-	@DateTimeFormat(pattern = "MM-DD-YYYY")
+	@DateTimeFormat(pattern = "yyyy-mm-dd")
 	Date holidayDate;
 	@NotEmpty
 	@Size(min = 3, max = 100, message = "give me some valid reason")

@@ -2,10 +2,15 @@ package com.mum.domain;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -18,44 +23,47 @@ public class Leave {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	long leaveid;
 	@NotNull
-	@DateTimeFormat(pattern = "dd/MM/YY")
+	@DateTimeFormat(pattern = "yyyy-mm-dd")
 	Date appliedDate;
 	@NotNull
-	@DateTimeFormat(pattern = "dd/MM/YY")
+	@DateTimeFormat(pattern = "yyyy-mm-dd")
 	Date leaveFromDate;
 	@NotNull
-	@DateTimeFormat(pattern = "dd/MM/YY")
+	@DateTimeFormat(pattern = "yyyy-mm-dd")
 	Date leaveToDate;
 	@NotEmpty
 	@Size(min = 3, max = 500, message = "description is short")
 	String description;
 	// replace by employye
-	// @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	// @JoinColumn(name = "approvedById")
-	// Employee approvedBy;
-
-	// public Employee getApprovedBy() {
-	// return approvedBy;
-	// }
-	//
-	// public void setApprovedBy(Employee approvedBy) {
-	// this.approvedBy = approvedBy;
-	// }
-
-//	public Employee getApplicant() {
-//		return applicant;
-//	}
-//
-//	public void setApplicant(Employee applicant) {
-//		this.applicant = applicant;
-//	}
+	@Valid
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "approvedById")
+	Employee approvedById;
+	@Valid
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "applicantId")
+	Employee applicantId;
 
 	boolean isApproved;
-	// employye
-//	Employee applicant;
 
 	public long getLeaveid() {
 		return leaveid;
+	}
+
+	public Employee getApprovedById() {
+		return approvedById;
+	}
+
+	public void setApprovedById(Employee approvedById) {
+		this.approvedById = approvedById;
+	}
+
+	public Employee getApplicantId() {
+		return applicantId;
+	}
+
+	public void setApplicantId(Employee applicantId) {
+		this.applicantId = applicantId;
 	}
 
 	public void setLeaveid(long leaveid) {
