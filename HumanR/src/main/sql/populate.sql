@@ -15,5 +15,5 @@ INSERT INTO hrmdata.phone VALUES (NULL,641,451,5194);
 INSERT INTO hrmdata.address VALUES (NULL,"Fairfield","fsdfsd@gmail.com","dskfddd","dsfsdldffdkf",52557);
 
 INSERT INTO hrmdata.employee VALUES (NULL,"2015-12-16","2015-12-16","2015-12-16","Nabin","Male",1,"2015-12-16","Puri","2015-12-16",1234,1,1,1,1,1,1,1,1);
-INSERT INTO hrmdata.employee VALUES (NULL,"2015-12-16","2015-12-16","2015-12-16","Nabin","Male",1,"2015-12-16","Puri","2015-12-16",1234,1,1,1,1,1,1,1,1);
-INSERT INTO hrmdata.employee VALUES (NULL,"2015-12-16","2015-12-16","2015-12-16","Nabin","Male",1,"2015-12-16","Puri","2015-12-16",1234,1,1,1,1,1,1,1,1);
+INSERT INTO hrmdata.employee VALUES (NULL,"2015-12-16","2015-12-16","2015-12-16","Nabin","Male",2,"2015-12-16","Puri","2015-12-16",1234,1,1,1,1,1,1,1,1);
+INSERT INTO hrmdata.employee VALUES (NULL,"2015-12-16","2015-12-16","2015-12-16","Nabin","Male",3,"2015-12-16","Puri","2015-12-16",1234,1,1,1,1,1,1,1,1);
