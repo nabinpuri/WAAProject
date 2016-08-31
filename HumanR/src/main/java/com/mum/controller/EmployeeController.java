@@ -1,5 +1,7 @@
 package com.mum.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
@@ -13,22 +15,29 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-
+import com.mum.domain.Department;
 import com.mum.domain.Employee;
+import com.mum.services.DepartmentService;
+import com.mum.services.EmployeeService;
 
 @Controller
 @RequestMapping("/employee")
 public class EmployeeController {
-
-	@RequestMapping({"/", "/list"})
+	@Autowired 
+	EmployeeService employeeService;
+	@RequestMapping({"", "/list"})
 	public String showemployeeList(Model model) {
-		System.out.println("inside employee controller");
+		System.out.println("inside employee controllers");
+		List<Employee> employeeList=employeeService.getAll();
+		System.out.println("joined date gates="+employeeList.get(0).getJoinedDate());
+		model.addAttribute("employeeList",employeeList);
 		return "employeeList";
 	}
 	
-	@RequestMapping(value="/addewEmployee" ,method = RequestMethod.GET)
-	public String addNewEmployee( @ModelAttribute("newEmployee") Employee employee, Model model) {
-		return "newEmployeeForm";
+	@RequestMapping(value="/addNewEmployee" ,method = RequestMethod.GET)
+	public String addNewEmployee(@ModelAttribute("newEmployee") Employee newEmployee,Model model) {
+		System.out.println("inside employee controllerchange add new employee");
+		return "addNewEmployee";
 	}
 	
 	@RequestMapping(value="/addewEmployee" ,method = RequestMethod.POST)

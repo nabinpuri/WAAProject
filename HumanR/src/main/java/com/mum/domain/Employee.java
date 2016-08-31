@@ -5,6 +5,7 @@ package com.mum.domain;
 
 import java.util.Date;
 
+import javax.annotation.Nullable;
 import javax.persistence.*;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,9 +28,12 @@ public class Employee {
 	private String firstName;
 	@NotEmpty (message="cannot be empty")
 	private String lastName;
-	@NotEmpty (message="cannot be empty")
-	private long SSN;
+	@NotEmpty
+	private long ssn;
 	
+
+	@NotEmpty (message="cannot be empty")
+	private String gender;
 	@NotNull(message="cannot be null")
 	@Valid
 	@OneToOne(fetch=FetchType.EAGER,cascade=CascadeType.ALL)
@@ -52,6 +56,7 @@ public class Employee {
 	@JoinColumn(name="phoneId")
 	private Phone phone;
 	
+	@Nullable
 	@OneToOne(fetch=FetchType.LAZY,cascade=CascadeType.ALL)
 	@JoinColumn(name="supervisedbyID")
 	private Employee supervisedBy;
@@ -66,25 +71,44 @@ public class Employee {
 	
 	@Past
 	@NotNull
-	@DateTimeFormat(pattern = "MM-dd-yyyy")
-	private Date DateOfBirth;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date dateOfBirth;
+	
 	@NotNull
-	@DateTimeFormat(pattern = "MM-dd-yyyy")
-	private Date JoinedDate;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date joinedDate;
 	
 	
 	@NotNull
-	@DateTimeFormat(pattern = "MM-dd-yyyy")
-	private Date ContractDate;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date contractDate;
 	
 	private boolean inActive;
 	
-	@DateTimeFormat(pattern = "MM-dd-yyyy")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date createdDate;
 	
-	@DateTimeFormat(pattern = "MM-dd-yyyy")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date modifyDate;
+	
+	@OneToOne(fetch=FetchType.EAGER,cascade=CascadeType.ALL)
+	@JoinColumn(name="user_id")
+	private User userId;// user id from user table
+	public String getGender() {
+		return gender;
+	}
 
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	public User getUserId() {
+		return userId;
+	}
+
+	public void setUserId(User userId) {
+		this.userId = userId;
+	}
 	public User getCreatedBy() {
 		return createdBy;
 	}
@@ -162,36 +186,28 @@ public class Employee {
 		this.lastName = lastName;
 	}
 
-	public long getSSN() {
-		return SSN;
+	public long getSsn() {
+		return ssn;
 	}
 
-	public void setSSN(long sSN) {
-		SSN = sSN;
+	public void setSsn(long sSN) {
+		ssn = sSN;
 	}
 
 	public Date getDateOfBirth() {
-		return DateOfBirth;
+		return dateOfBirth;
 	}
 
 	public void setDateOfBirth(Date dateOfBirth) {
-		DateOfBirth = dateOfBirth;
+		this.dateOfBirth = dateOfBirth;
 	}
 
 	public Date getJoinedDate() {
-		return JoinedDate;
+		return joinedDate;
 	}
 
 	public void setJoinedDate(Date joinedDate) {
-		JoinedDate = joinedDate;
-	}
-
-	public Date getContactDate() {
-		return ContractDate;
-	}
-
-	public void setContactDate(Date contactDate) {
-		ContractDate = contactDate;
+		this.joinedDate = joinedDate;
 	}
 
 	public boolean isInActive() {
@@ -219,10 +235,10 @@ public class Employee {
 	}
 
 	public Date getContractDate() {
-		return ContractDate;
+		return contractDate;
 	}
 
 	public void setContractDate(Date contractDate) {
-		ContractDate = contractDate;
+		this.contractDate = contractDate;
 	}
 }
