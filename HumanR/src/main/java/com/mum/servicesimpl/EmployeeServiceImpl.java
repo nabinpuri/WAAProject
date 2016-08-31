@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.mum.domain.Department;
 import com.mum.domain.Employee;
 import com.mum.repository.EmployeeRepository;
 import com.mum.repository.HolidaysRepository;
@@ -16,8 +17,8 @@ public class EmployeeServiceImpl implements EmployeeService{
 	@Autowired
 	EmployeeRepository employeeRepository;
 	public List<Employee> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		System.out.println("inside repository call for employee getall()");
+		return (List<Employee>)employeeRepository.findAll();
 	}
 
 	public Employee getOneByPRimaryId(Long id) {

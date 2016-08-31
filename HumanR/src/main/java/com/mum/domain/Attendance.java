@@ -21,7 +21,7 @@ public class Attendance {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	long attendanceId;
 	@NotNull
-	@DateTimeFormat(pattern = "dd/MM/YY")
+	@DateTimeFormat(pattern = "yyyy-mm-dd")
 	Date date;
 	@NotNull
 	@DateTimeFormat(pattern = "hh:mm:ss")
@@ -30,17 +30,18 @@ public class Attendance {
 	@DateTimeFormat(pattern = "hh:mm:ss")
 	Time checkoutTime;
 	// employee
-//	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-//	@JoinColumn(name = "employeeId")
-//	Employee employeeid;
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name = "userId")
+	User userId;
 
-//	public Employee getEmployeeid() {
-//		return employeeid;
-//	}
-//
-//	public void setEmployeeid(Employee employeeid) {
-//		this.employeeid = employeeid;
-//	}
+	
+	public User getUserId() {
+		return userId;
+	}
+
+	public void setUserId(User userId) {
+		this.userId = userId;
+	}
 
 	public long getAttendanceId() {
 		return attendanceId;
