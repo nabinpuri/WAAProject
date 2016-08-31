@@ -21,9 +21,9 @@ public class Phone {
 	private long phoneId;
 	@Range(min=100,max=999, message="phone prefix must have three Digit")
 	private int prefix;
-	@Range(min=100,max=999, message="phone prefix must have three Digit")
+	@Range(min=100,max=999, message="phone areaCode must have three Digit")
 	private int areaCode;
-	@Range(min=1000,max=9999, message="phone prefix must have four Digit")
+	@Range(min=1000,max=9999, message="phone number must have four Digit")
 	private int number;
 
 	public long getPhoneId() {
