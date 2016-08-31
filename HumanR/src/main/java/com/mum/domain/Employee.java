@@ -93,7 +93,7 @@ public class Employee {
 	
 	@OneToOne(fetch=FetchType.EAGER,cascade=CascadeType.ALL)
 	@JoinColumn(name="user_id")
-	private User userId;// user id from user table
+	private User user;// user id from user table
 	public String getGender() {
 		return gender;
 	}
@@ -102,12 +102,12 @@ public class Employee {
 		this.gender = gender;
 	}
 
-	public User getUserId() {
-		return userId;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUserId(User userId) {
-		this.userId = userId;
+	public void setUser(User user) {
+		this.user = user;
 	}
 	public User getCreatedBy() {
 		return createdBy;

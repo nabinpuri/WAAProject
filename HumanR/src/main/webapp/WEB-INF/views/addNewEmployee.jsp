@@ -92,6 +92,21 @@
 	        <div class="col-md-3"> <label for="fname">Contract Date: </label></div>
 	        <div class="col-md-7"><form:input id="contractDate" path="contractDate" tabindex="17" class="form-control"/></div>    
         </div>
+         <div class="col-md-5">
+	        <div class="col-md-3"><label for="fname">Create Login: </label><br></div>   
+        </div>
+        <div class="col-md-8 form-group">
+	        <div class="col-md-3"> <label for="userName">UserName: </label></div>
+	        <div class="col-md-7"><form:input id="userName" path="user.userName" tabindex="18" class="form-control"/></div>    
+        </div>
+        <div class="col-md-8 form-group">
+	        <div class="col-md-3"> <label for="fname">Password: </label></div>
+	        <div class="col-md-7"><form:input type="password" id="password" path="user.password" tabindex="19" class="form-control"/></div>    
+        </div>
+        <div class="col-md-8 form-group">
+	        <div class="col-md-3"> <label for="fname">Role: </label></div>
+	        <div class="col-md-7"><form:select path="user.userRole.roleId" items="${userRoles}" itemValue="roleId" itemLabel="roleName" tabindex="6" class="form-control" /></div>    
+        </div>
         <div class="col-md-5 text-right form-group">
 	        <div class="col-md-2"> <input id="reset" type="reset" tabindex="18" class=" btn-danger form-control"></div>
 	        <div class="col-md-2"> <input id="submit" type="submit" tabindex="19" 
