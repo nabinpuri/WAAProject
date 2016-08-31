@@ -11,13 +11,28 @@
 
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+<script type="text/javascript"
+	src="<spring:url value="/resource/js/holidays.js"/>"></script>
 <script>
 	$(function() {
-		$("#holidayDateId").datepicker();
+		$("#holidayDateId").datepicker({
+			format : "yyyy-mm-dd",
+			startDate : "2012-01-01",
+			endDate : "2015-01-01",
+			todayBtn : "linked",
+			autoclose : true,
+			todayHighlight : true
+		});
 	});
 </script>
 </head>
 <body>
+	<div>
+		<input type="button" value="checkin" onclick="checkinCall(1);">
+	</div>
+	<div>
+		<input type="button" value="check out" onclick="checkoutCall(1);">
+	</div>
 	<form:form modelAttribute="holidays" action="holidays">
 		<fieldset>
 			<legend>Add Holiday</legend>

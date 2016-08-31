@@ -22,7 +22,7 @@ public class Leave {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	long leaveid;
-	@NotNull
+//	@NotNull
 	@DateTimeFormat(pattern = "yyyy-mm-dd")
 	Date appliedDate;
 	@NotNull
@@ -35,11 +35,11 @@ public class Leave {
 	@Size(min = 3, max = 500, message = "description is short")
 	String description;
 	// replace by employye
-	@Valid
+//	@Valid
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "approvedById")
 	Employee approvedById;
-	@Valid
+//	@Valid
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "applicantId")
 	Employee applicantId;
