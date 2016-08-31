@@ -9,6 +9,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.mum.domain.Post;
 import com.mum.domain.Vacancy;
@@ -53,6 +55,13 @@ public class VacancyController {
 		
 		
 		return "vacancyList";
+	}
+	@RequestMapping(value = "/approveVacancy", method = RequestMethod.GET)
+	public @ResponseBody String approveVacancy(@RequestParam("id") Long vacancyId) {
+		Vacancy vacancy=vacancyService.getOneByPRimaryId(vacancyId);
+		vacancy.setIsApproved(true);
+		vacancyService.save(vacancy);
+		return "{\"msg\":\"success\"}";
 	}
 
 }
