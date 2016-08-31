@@ -27,8 +27,14 @@ public class EmployeeServiceImpl implements EmployeeService{
 	}
 
 	public int save(Employee entity) {
-		// TODO Auto-generated method stub
-		return 0;
+		try{
+			employeeRepository.save(entity);
+			return 0;
+		}
+		catch(Exception e){
+			System.out.println("error"+e.getMessage());
+			return 1;
+		}
 	}
 
 	public boolean delete(Employee entity) {

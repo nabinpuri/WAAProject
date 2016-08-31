@@ -24,18 +24,17 @@ public class Employee {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long employeeId;
-	@NotEmpty (message="cannot be empty")
+	@NotEmpty (message=" firstName cannot be empty")
 	private String firstName;
-	@NotEmpty (message="cannot be empty")
+	@NotEmpty (message=" lastName cannot be empty")
 	private String lastName;
-	@NotEmpty
-	private long ssn;
+	
+	private int ssn;
 	
 
-	@NotEmpty (message="cannot be empty")
+	@NotEmpty (message=" gender cannot be empty")
 	private String gender;
 	@NotNull(message="cannot be null")
-	@Valid
 	@OneToOne(fetch=FetchType.EAGER,cascade=CascadeType.ALL)
 	@JoinColumn(name="departmentId")
 	private Department department;// foreign key
@@ -90,6 +89,7 @@ public class Employee {
 	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date modifyDate;
+	
 	
 	@OneToOne(fetch=FetchType.EAGER,cascade=CascadeType.ALL)
 	@JoinColumn(name="user_id")
@@ -186,11 +186,11 @@ public class Employee {
 		this.lastName = lastName;
 	}
 
-	public long getSsn() {
+	public int getSsn() {
 		return ssn;
 	}
 
-	public void setSsn(long sSN) {
+	public void setSsn(int sSN) {
 		ssn = sSN;
 	}
 

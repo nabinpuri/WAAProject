@@ -21,14 +21,14 @@ public class Address {
 	private long addressId;
 	@Email(message="invalid email")
 	private String email;
-	@NotEmpty (message="cannot be empty")
+	@NotEmpty (message="street cannot be empty")
 	private String street;
-	@NotEmpty(message="cannot be empty")
+	@NotEmpty(message=" state cannot be empty")
 	private String state;
-	@NotEmpty(message="cannot be empty")
+	@NotEmpty(message=" city cannot be empty")
 	private String city;
 	
-	@NotEmpty
+	
 	@Range(min=10000,max=99999, message="Zipcode must have five Digit")
 	private int zipCode;
 
