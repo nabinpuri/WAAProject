@@ -8,6 +8,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
 <script>
 	$(function() {
 		$("#holidayDateId").datepicker();
@@ -17,7 +20,7 @@
 <body>
 	<form:form modelAttribute="holidays" action="holidays">
 		<fieldset>
-			<legend>Holiday List</legend>
+			<legend>Add Holiday</legend>
 			<div class="form-group">
 				Date:
 				<div class="col-lg-10">

@@ -1,7 +1,7 @@
 package com.mum.services;
 
-import com.mum.domain.Attendance;
+import com.mum.domain.Holidays;
 
-public interface HolidaysService extends BaseService<Attendance,Long> {
+public interface HolidaysService extends BaseService<Holidays,Long> {
 
 }
