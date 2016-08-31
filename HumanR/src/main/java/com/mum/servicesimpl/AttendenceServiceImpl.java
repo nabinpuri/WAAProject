@@ -23,12 +23,21 @@ public class AttendenceServiceImpl implements AttendenceService {
 
 	public Attendance getOneByPRimaryId(Long id) {
 		// TODO Auto-generated method stub
+		System.out.println("this is service impl" + id);
 		return attendenceRepositorys.findOne(id);
 	}
 
 	public int save(Attendance entity) {
 		// TODO Auto-generated method stub
-		attendenceRepositorys.save(entity);
+		System.out.println("this is service impl" );
+		try {
+			attendenceRepositorys.save(entity);
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("this is service impl error" );
+
+		}
+//		attendenceRepositorys.save(entity);
 		return 0;
 	}
 

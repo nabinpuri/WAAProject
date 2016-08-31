@@ -13,19 +13,18 @@
 <title>Insert title here</title>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
-<script type="text/javascript" src="../resources/js/utility.js"></script>
-<!-- <script>
+ <script>
 	$(function() {	
 		$("#leaveFromDateId").datepicker({			
-			format:'mm-dd-yyyy'
+			format:'yyyy-mm-dd'
 		});
 	});
 	$(function() {
 		$("#leaveToDateId").datepicker({
-			format:'mm-dd-yyyy'
+			format:'yyyy-mm-dd'
 		});
 	});
-</script>-->
+</script>
 </head>
 <body>
 	<form:form modelAttribute="leave" action="leave">

@@ -1,12 +1,18 @@
 package com.mum.domain;
 
 import java.sql.Time;
+import java.sql.Timestamp;
 import java.util.Date;
 
+import javax.annotation.Nullable;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -19,24 +25,27 @@ public class Attendance {
 	@NotNull
 	@DateTimeFormat(pattern = "yyyy-mm-dd")
 	Date date;
-	@NotNull
+//	@NotNull
+	@Nullable
 	@DateTimeFormat(pattern = "hh:mm:ss")
-	Time checkinTime;
-	@NotNull
+	Timestamp checkinTime;
+//	@NotNull
+	@Nullable
 	@DateTimeFormat(pattern = "hh:mm:ss")
-	Time checkoutTime;
+	Timestamp checkoutTime;
 	// employee
-//	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-//	@JoinColumn(name = "employeeId")
-//	Employee employeeid;
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name = "userId")
+	User userId;
 
-//	public Employee getEmployeeid() {
-//		return employeeid;
-//	}
-//
-//	public void setEmployeeid(Employee employeeid) {
-//		this.employeeid = employeeid;
-//	}
+	
+	public User getUserId() {
+		return userId;
+	}
+
+	public void setUserId(User userId) {
+		this.userId = userId;
+	}
 
 	public long getAttendanceId() {
 		return attendanceId;
@@ -54,20 +63,21 @@ public class Attendance {
 		this.date = date;
 	}
 
-	public Time getCheckinTime() {
+	public Timestamp getCheckinTime() {
 		return checkinTime;
 	}
 
-	public void setCheckinTime(Time checkinTime) {
+	public void setCheckinTime(Timestamp checkinTime) {
 		this.checkinTime = checkinTime;
 	}
 
-	public Time getCheckoutTime() {
+	public Timestamp getCheckoutTime() {
 		return checkoutTime;
 	}
 
-	public void setCheckoutTime(Time checkoutTime) {
+	public void setCheckoutTime(Timestamp checkoutTime) {
 		this.checkoutTime = checkoutTime;
 	}
+
 
 }

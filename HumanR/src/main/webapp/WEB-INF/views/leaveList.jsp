@@ -13,13 +13,11 @@
   })
   </script>
 
-<script type="text/javascript"
-	src="<spring:url value="../resources/leave.js"/>"></script>
 <html>
-
+<script type="text/javascript"
+	src="<spring:url value="/resource/js/leave.js"/>"></script>
 <body>
 	<h2>List of Leaves</h2>
-
 	<table id="leaveId" cellpadding="0" cellspacing="0" border="1">
 		<thead>
 			<tr>
@@ -54,6 +52,6 @@
 			</c:forEach>
 		</tbody>
 	</table>
+
 </body>
-</html>
 </html>
