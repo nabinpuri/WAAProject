@@ -15,21 +15,63 @@
 		</div>
 	</div>
 	<div>
-	<spring:url var="postUrl" value="/employee/addewEmployee" />
-	<form:form modleAttribute="newEmployee" mehtod='POST' action="{postUrl}">
+	<spring:url var="postUrl" value="../employee/addewEmployee" />
+	<form:form modelAttribute="newEmployee" mehtod='POST' action="{postUrl}">
 	 <fieldset>
         <legend>Add New Employee</legend>
         <p>
-        <label for="firstName"><spring:message code="Employee.firstName" /> </label>
-              <form:input id="name" path="firstName" tabindex="1"/>
+        <label for="fname">FirstName: </label>
+              <form:input id="firstName" path="firstName" tabindex="1"/>
         </p>
          <p>
-        <label for="lastName"><spring:message code="Employee.lastName" /> </label>
-              <form:input id="name" path="firstName" tabindex="1"/>
+        <label for="fname">LastName: </label>
+              <form:input id="lastName" path="lastName" tabindex="2"/>
+        </p>
+         <p>
+        <label for="fname">DateOfBirth: </label>
+              <form:input id="dateOfBirth" path="dateOfBirth" tabindex="3"/>
+        </p>
+         <p>
+        <label for="fname">Gender: </label>
+              <form:input id="gender" path="gender" tabindex="4"/>
+        </p>
+         <p>
+        <label for="fname">Department: </label>
+              <form:input id="department" path="department" tabindex="5"/>
+        </p>
+         <p>
+        <label for="fname">Post: </label>
+              <form:input id="post" path="post" tabindex="6"/>
+        </p>
+         <p>
+        <label for="fname">SSN: </label>
+              <form:input id="ssn" path="ssn" tabindex="7"/>
+        </p>
+        <p>
+        <label for="fname">Adress: </label><br>
+             city: <form:input id="city" path="address.city" tabindex="8"/><br>
+             state:<form:input id="state" path="address.state" tabindex="9"/><br>
+              ZipCode: <form:input id="zipCode" path="address.zipCode" tabindex="10"/><br>
+               Street: <form:input id="street" path="address.street" tabindex="11"/><br>
+               Email: <form:input id="email" path="address.email" tabindex="12"/>
+        </p>
+         <p>
+        <label for="fname">Phone: </label><br>
+              <form:input id="city" path="phone.prefix" tabindex="13"/>
+               <form:input id="state" path="phone.areaCode" tabindex="14"/>
+                <form:input id="zipCode" path="phone.number" tabindex="15"/>
+        </p>
+         <p>
+        <label for="fname">Joined Date: </label>
+              <form:input id="joinedDate" path="joinedDate" tabindex="16"/>
+        </p>
+         <p>
+        <label for="fname">Contract Date: </label>
+              <form:input id="contractDate" path="contractDate" tabindex="17"/>
         </p>
         <p id="buttons">
-            <input id="reset" type="reset" tabindex="4">
-            <input id="submit" type="submit" tabindex="5" 
+            <input id="reset" type="reset" tabindex="18">
+            <input id="submit" type="submit" tabindex="19" 
                 value="Add Employee">
         </p>
     </fieldset>
