@@ -19,7 +19,7 @@ public class Department {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long departmentId;
-	@NotEmpty (message="cannot be empty")
+	@NotEmpty (message=" departmentName cannot be empty")
 	private String departmentName;
 	public long getDepartmentId() {
 		return departmentId;

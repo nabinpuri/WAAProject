@@ -1,8 +1,10 @@
 package com.mum.domain;
 
 import java.sql.Time;
+import java.sql.Timestamp;
 import java.util.Date;
 
+import javax.annotation.Nullable;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -23,12 +25,14 @@ public class Attendance {
 	@NotNull
 	@DateTimeFormat(pattern = "yyyy-mm-dd")
 	Date date;
-	@NotNull
+//	@NotNull
+	@Nullable
 	@DateTimeFormat(pattern = "hh:mm:ss")
-	Time checkinTime;
-	@NotNull
+	Timestamp checkinTime;
+//	@NotNull
+	@Nullable
 	@DateTimeFormat(pattern = "hh:mm:ss")
-	Time checkoutTime;
+	Timestamp checkoutTime;
 	// employee
 	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "userId")
@@ -59,20 +63,21 @@ public class Attendance {
 		this.date = date;
 	}
 
-	public Time getCheckinTime() {
+	public Timestamp getCheckinTime() {
 		return checkinTime;
 	}
 
-	public void setCheckinTime(Time checkinTime) {
+	public void setCheckinTime(Timestamp checkinTime) {
 		this.checkinTime = checkinTime;
 	}
 
-	public Time getCheckoutTime() {
+	public Timestamp getCheckoutTime() {
 		return checkoutTime;
 	}
 
-	public void setCheckoutTime(Time checkoutTime) {
+	public void setCheckoutTime(Timestamp checkoutTime) {
 		this.checkoutTime = checkoutTime;
 	}
+
 
 }

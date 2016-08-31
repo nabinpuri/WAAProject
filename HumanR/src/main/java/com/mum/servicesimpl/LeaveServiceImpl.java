@@ -16,9 +16,12 @@ import com.mum.services.LeaveService;
 public class LeaveServiceImpl implements LeaveService {
 	@Autowired
 	LeaveRepository leaveRepository;
+//	@Autowired
+//	Userservice
 
 	public List<Leave> getAll() {
 		// TODO Auto-generated method stub
+		//calculate no of days for each leave request
 		return (List<Leave>) leaveRepository.findAll();
 	}
 
