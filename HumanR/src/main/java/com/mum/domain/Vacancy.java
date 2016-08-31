@@ -2,23 +2,46 @@ package com.mum.domain;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 /**
  * 
  * @author NiDiNA
  *
  */
-
+@Entity
 public class Vacancy {
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
+	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+	@JoinColumn(name="post_id")
 	private Post post;
 	private int numberOfEmployee;
 	private String requirement;
 	private Boolean isApproved;
-	// private Employee approvedBy;
+	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+	@JoinColumn(name="approved_id")
+	 private Employee approvedBy;
 	private int numberOfFilledNumber;
+	@DateTimeFormat(pattern = "YYYY-MM-DD")
 	private Date createdDate;
+	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+	@JoinColumn(name="created_user_id")
 	private User createdBy;
+	@DateTimeFormat(pattern = "YYYY-MM-DD")
 	private Date modifiedDate;
+	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+	@JoinColumn(name="modified_user_id")
 	private User modifiedBy;
 
 	// generate getters and getters

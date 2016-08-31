@@ -26,9 +26,15 @@
 	</definition>
 	
 	<definition name="vacancyList" extends="baseLayout">
-		<put-attribute name="title" value="Vacnacy" />
+		<put-attribute name="title" value="Vacancy" />
 		<put-attribute name="heading" value="Human Resource" />
  		<put-attribute name="body" value="/WEB-INF/views/vacancyList.jsp" />
+	</definition>
+	
+	<definition name="vacancy" extends="baseLayout">
+		<put-attribute name="title" value="Vacnacy" />
+		<put-attribute name="heading" value="Human Resource" />
+ 		<put-attribute name="body" value="/WEB-INF/views/vacancy.jsp" />
 	</definition>
 	
 	<!-- ..........................Nabin...........................parts starts here -->
