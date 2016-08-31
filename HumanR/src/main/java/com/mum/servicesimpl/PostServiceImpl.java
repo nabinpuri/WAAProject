@@ -22,17 +22,31 @@ public class PostServiceImpl implements PostService{
 
 	public Post getOneByPRimaryId(Long id) {
 		// TODO Auto-generated method stub
-		return null;
+		return postRepository.findOne(id);
 	}
 
 	public int save(Post entity) {
-		// TODO Auto-generated method stub
-		return 0;
+		try{
+		 postRepository.save(entity);
+		 return 0;
+		 
+		}catch(Exception e){
+			return 1;
+		}
+		
+		
 	}
 
 	public boolean delete(Post entity) {
-		// TODO Auto-generated method stub
-		return false;
+		try{
+			postRepository.delete(entity);
+			 return true;
+			 
+			}catch(Exception e){
+				return false;
+			}
+			
+		
 	}
 
 }

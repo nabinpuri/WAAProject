@@ -8,24 +8,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
-<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
 <script>
-$(document).ready(function(){
-
-	alert(1);
-		  $('.modifiedDate').datepicker({
-		        format: "yyyy/mm/dd",
-		        startDate: "2012-01-01",
-		        endDate: "2015-01-01",
-		        todayBtn: "linked",
-		        autoclose: true,
-		        todayHighlight: true
-		    });
-		  
-	
-});
 
   
 </script>
@@ -46,9 +29,9 @@ $(document).ready(function(){
 				
 				<div class="col-lg-10">
 				<label for ="Post">Post</label>
-					<form:select path="post.postId">
-					<form:options items="${posts}" itemValue="postId" itemLabel="postName"></form:options>
-					</form:select>
+
+					<form:select path="post.postId" items="${posts}" itemValue="postId" itemLabel="postName" />
+					
 				</div>
 			</div>
 			<div class="form-group">
@@ -65,6 +48,7 @@ $(document).ready(function(){
 				<form:input path="numberOfFilledNumber"></form:input>	
 				</div>
 			</div>
+			
 			<div class="form-group">
 				<div class="col-lg-offset-2 col-lg-10">
 					<input type="submit"  class="btn btn-primary"

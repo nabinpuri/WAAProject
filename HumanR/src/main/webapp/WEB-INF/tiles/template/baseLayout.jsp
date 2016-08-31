@@ -2,9 +2,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
-<script  src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
+<link rel="stylesheet" type="text/css"
+	href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8"
+	src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" charset="utf8"
+	src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
 
 
 <!DOCTYPE html>
@@ -29,7 +32,7 @@
 			<ul class="nav nav-pills pull-right">
 				<tiles:insertAttribute name="navigation" />
 			</ul>
-			<h3 class="text-muted">Web Store</h3>
+			<h3 class="text-muted">Human Resource</h3>
 		</div>
 
 
