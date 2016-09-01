@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class LoginController {
 
-	@RequestMapping(value="/login", method = RequestMethod.GET)
+	@RequestMapping(value="/", method = RequestMethod.GET)
 	public String login() {
 		System.out.println("inside login");
  		return "login";
@@ -22,8 +22,13 @@ public class LoginController {
  
 	}
  
-	@RequestMapping(value="/logout", method = RequestMethod.GET)
+	@RequestMapping(value="/logout", method = RequestMethod.POST)
 	public String logout(Model model) {
- 		return "redirect:/vacancy/vacancyList";
+ 		return "login";
+ 	}
+	
+	@RequestMapping(value="/deniedPage")
+	public String deniedPage(Model model) {
+ 		return "denied";
  	}
 }
