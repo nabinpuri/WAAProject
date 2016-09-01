@@ -3,6 +3,8 @@
  */
 package com.mum.domain;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,7 +17,11 @@ import org.hibernate.validator.constraints.Range;
  *
  */
 @Entity
-public class Phone {
+public class Phone implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 12L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long phoneId;

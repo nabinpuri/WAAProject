@@ -22,8 +22,8 @@ public class EmployeeServiceImpl implements EmployeeService{
 	}
 
 	public Employee getOneByPRimaryId(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return employeeRepository.findOne(id);
 	}
 
 	public int save(Employee entity) {
@@ -38,8 +38,15 @@ public class EmployeeServiceImpl implements EmployeeService{
 	}
 
 	public boolean delete(Employee entity) {
-		// TODO Auto-generated method stub
+		employeeRepository.delete(entity);
 		return false;
+	}
+
+	@Override
+	public List<Employee> getEmployeeByDepartmentId(Long departmentId) {
+		System.out.println("inside service getEmployeeByDepartmentId");
+		return employeeRepository.getEmployeesByDepartmentId(departmentId);
+		//return null;
 	}
 
 }

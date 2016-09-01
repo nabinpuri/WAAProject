@@ -2,7 +2,7 @@
  * 
  */
 package com.mum.domain;
-
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.annotation.Nullable;
@@ -20,7 +20,11 @@ import org.springframework.format.annotation.DateTimeFormat;
  *
  */
 @Entity(name="employee")
-public class Employee {
+public class Employee implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1000L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long employeeId;
@@ -35,13 +39,13 @@ public class Employee {
 	@NotEmpty (message=" gender cannot be empty")
 	private String gender;
 	@NotNull(message="cannot be null")
-	@OneToOne(fetch=FetchType.EAGER,cascade=CascadeType.ALL)
+	@OneToOne(fetch=FetchType.EAGER,cascade=CascadeType.MERGE)
 	@JoinColumn(name="departmentId")
 	private Department department;// foreign key
 	
 	@NotNull(message="cannot be null")
 	@Valid
-	@OneToOne(fetch=FetchType.EAGER,cascade=CascadeType.ALL)
+	@OneToOne(fetch=FetchType.EAGER,cascade=CascadeType.MERGE)
 	@JoinColumn(name="postId")
 	private Post post;// foreign key
 	
@@ -56,15 +60,15 @@ public class Employee {
 	private Phone phone;
 	
 	@Nullable
-	@OneToOne(fetch=FetchType.LAZY,cascade=CascadeType.ALL)
+	@OneToOne(fetch=FetchType.EAGER,cascade=CascadeType.MERGE)
 	@JoinColumn(name="supervisedbyID")
 	private Employee supervisedBy;
 	
-	@OneToOne(fetch=FetchType.EAGER,cascade=CascadeType.ALL)
+	@OneToOne(fetch=FetchType.EAGER,cascade=CascadeType.MERGE)
 	@JoinColumn(name="createdBy")
 	private User createdBy;// id from users
 	
-	@OneToOne(fetch=FetchType.EAGER,cascade=CascadeType.ALL)
+	@OneToOne(fetch=FetchType.EAGER,cascade=CascadeType.MERGE)
 	@JoinColumn(name="modifyby")
 	private User modifyBy;// user id from user table
 	
@@ -84,6 +88,14 @@ public class Employee {
 	
 	private boolean inActive;
 	
+	public boolean isInActive() {
+		return inActive;
+	}
+
+	public void setInActive(boolean inActive) {
+		this.inActive = inActive;
+	}
+
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date createdDate;
 	
@@ -208,14 +220,6 @@ public class Employee {
 
 	public void setJoinedDate(Date joinedDate) {
 		this.joinedDate = joinedDate;
-	}
-
-	public boolean isInActive() {
-		return inActive;
-	}
-
-	public void setInActive(boolean inActive) {
-		this.inActive = inActive;
 	}
 
 	public Date getCreatedDate() {
