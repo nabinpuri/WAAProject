@@ -18,7 +18,7 @@ import javax.validation.constraints.NotNull;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity(name= "attendance")
-public class Attendance {
+public class Attendence {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	long attendanceId;

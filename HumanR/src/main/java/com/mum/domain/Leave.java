@@ -10,7 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
-import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -21,8 +20,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Leave {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	long leaveid;
-//	@NotNull
+	Long leaveid;
+	@NotNull
 	@DateTimeFormat(pattern = "yyyy-mm-dd")
 	Date appliedDate;
 	@NotNull
@@ -32,7 +31,7 @@ public class Leave {
 	@DateTimeFormat(pattern = "yyyy-mm-dd")
 	Date leaveToDate;
 	@NotEmpty
-	@Size(min = 3, max = 500, message = "description is short")
+	@Size(min = 3, max = 500, message = "description is required")
 	String description;
 	// replace by employye
 //	@Valid
@@ -46,27 +45,13 @@ public class Leave {
 
 	boolean isApproved;
 
-	public long getLeaveid() {
+	
+
+	public Long getLeaveid() {
 		return leaveid;
 	}
 
-	public Employee getApprovedById() {
-		return approvedById;
-	}
-
-	public void setApprovedById(Employee approvedById) {
-		this.approvedById = approvedById;
-	}
-
-	public Employee getApplicantId() {
-		return applicantId;
-	}
-
-	public void setApplicantId(Employee applicantId) {
-		this.applicantId = applicantId;
-	}
-
-	public void setLeaveid(long leaveid) {
+	public void setLeaveid(Long leaveid) {
 		this.leaveid = leaveid;
 	}
 
@@ -102,6 +87,22 @@ public class Leave {
 		this.description = description;
 	}
 
+	public Employee getApprovedById() {
+		return approvedById;
+	}
+
+	public void setApprovedById(Employee approvedById) {
+		this.approvedById = approvedById;
+	}
+
+	public Employee getApplicantId() {
+		return applicantId;
+	}
+
+	public void setApplicantId(Employee applicantId) {
+		this.applicantId = applicantId;
+	}
+
 	public boolean isApproved() {
 		return isApproved;
 	}
@@ -109,4 +110,6 @@ public class Leave {
 	public void setApproved(boolean isApproved) {
 		this.isApproved = isApproved;
 	}
+
+	
 }

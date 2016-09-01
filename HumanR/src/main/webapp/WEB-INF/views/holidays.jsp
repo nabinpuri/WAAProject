@@ -4,15 +4,22 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<script  src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript"
+	src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<!-- Isolated Version of Bootstrap, not needed if your site already uses Bootstrap -->
+<link rel="stylesheet"
+	href="https://formden.com/static/cdn/bootstrap-iso.css" />
+<script type="text/javascript"
+	src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
 <script>
 	$(function() {
 		$("#holidayDateId").datepicker({
@@ -22,46 +29,34 @@
 </script>
 </head>
 <body>
-	<div>
-		<input type="button" value="checkin" onclick="checkinCall(1);">
-	</div>
-	<div>
-		<input type="button" value="check out" onclick="checkoutCall(1);">
-	</div>
-	<form:form modelAttribute="holidays" action="holidays">
+	<form:form modelAttribute="holidays">
 		<fieldset>
 			<legend>Add Holiday</legend>
 			<div class="form-group">
-				Date:
+
 				<div class="col-lg-10">
+					Date:
 					<form:input id="holidayDateId" path="holidayDate" type="text"
 						class="form:input-large" />
 				</div>
 			</div>
 			<div class="form-group">
-				Reasons:
+
 				<div class="col-lg-10">
+					Reasons:
 					<form:textarea id="reasonId" path="reason" type="text"
 						class="form:input-large" />
 				</div>
 			</div>
-			<div class="form-group">
-				<div class="col-lg-offset-2 col-lg-10">
-					<input type="submit" id="holidayId" class="btn btn-primary"
-						value="Add Holiday" />
-				</div>
+			<div class="col-lg-offset-2 col-lg-10">
+				<button>
+					<a href="<spring:url value="/holidays"/>">Add holiday</a>
+				</button>
+				<a href="<spring:url value="/holidaysList"/>">View Holidays</a>
+
+
 			</div>
 		</fieldset>
 	</form:form>
-	<div>
-		<h2>List of holidays</h2>
-		<c:if test="${not empty holidaysList}">
-			<ul>
-				<c:forEach var="listValue" items="${holidaysList}">
-					<li>${listValue.holidayDate}${listValue.reason}</li>
-				</c:forEach>
-			</ul>
-		</c:if>
-	</div>
 </body>
 </html>
