@@ -38,8 +38,8 @@ public class HolidaysController {
 			return "holidays";
 		}
 		holidaysService.save(holidays);
-		redirectAttribute.addFlashAttribute("holidays", holidays);
-		return "redirect:holidaysList";
+//		redirectAttribute.addFlashAttribute("holidays", holidays);
+		return "redirect:holidays";
 	}
 
 	@RequestMapping(value = "/holidaysList", method = RequestMethod.GET)

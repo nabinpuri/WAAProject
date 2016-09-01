@@ -21,7 +21,7 @@ public class DepartmentServiceImpl implements DepartmentService{
 
 	public Department getOneByPRimaryId(Long id) {
 		// TODO Auto-generated method stub
-		return null;
+		return departmentRepository.findOne(id);
 	}
 
 	public int save(Department entity) {

@@ -6,6 +6,7 @@ INSERT INTO hrmdata.department VALUES (NULL,"QA");
 
 INSERT INTO hrmdata.post VALUES (NULL,"Engineer",1000);
 INSERT INTO hrmdata.post VALUES (NULL,"Manager",2000);
+
 INSERT INTO hrmdata.post VALUES (NULL,"Developer",3000);
 
 INSERT INTO hrmdata.userrole VALUES (NULL,"admin");
@@ -23,3 +24,8 @@ INSERT INTO hrmdata.employee VALUES (NULL,"2015-12-16","2015-12-16","2015-12-16"
 INSERT INTO hrmdata.employee VALUES (NULL,"2015-12-16","2015-12-16","2015-12-16","Nabin","Male",3,"2015-12-16","Puri","2015-12-16",1234,1,1,1,1,1,1,1,1);
 
 
+<<<<<<< HEAD
+=======
+INSERT INTO hrmdata.leave VALUES (1,"2015-12-16","2015-12-16","2015-12-16","dsfsdldffdkf",1,1);
+INSERT INTO hrmdata.leave VALUES (2,"2015-12-16","2015-12-16","2015-12-16","dsfsdldffdkf",null,null);
+>>>>>>> 8ff5dfa41bfc7027e74c93065742a618aa91a11c
