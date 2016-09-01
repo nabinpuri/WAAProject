@@ -1,5 +1,7 @@
 package com.mum.domain;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,14 +20,17 @@ import org.hibernate.annotations.CascadeType;
  *
  */
 @Entity
-public class User {
+public class User{
 
+	/**
+	 * 
+	 */
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long userId;
 	private String userName;
 	private String password;
-	@OneToOne(cascade=javax.persistence.CascadeType.ALL)
+	@OneToOne(cascade=javax.persistence.CascadeType.MERGE)
 	@JoinColumn(name="user_role")
 	private UserRole userRole;
 	private Boolean isActive;
