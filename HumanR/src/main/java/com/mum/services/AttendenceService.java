@@ -1,7 +1,11 @@
 package com.mum.services;
 
-import com.mum.domain.Attendance;
+import java.util.Date;
 
-public interface AttendenceService  extends BaseService<Attendance,Long> {
+import com.mum.domain.Attendence;
+
+public interface AttendenceService  extends BaseService<Attendence,Long> {
+
+	Attendence getByUserIdandDate(Long employeeId, Date date);
 	
 }

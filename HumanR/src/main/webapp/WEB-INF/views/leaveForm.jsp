@@ -4,19 +4,29 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+<script type="text/javascript"
+	src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<!-- Isolated Version of Bootstrap, not needed if your site already uses Bootstrap -->
+<link rel="stylesheet"
+	href="https://formden.com/static/cdn/bootstrap-iso.css" />
+<script type="text/javascript"
+	src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<script type="text/javascript"
+	src="<spring:url value="/resource/js/leave.js"/>"></script>
 <script>
 	$(function() {
 		$("#leaveFromDateId").datepicker({
 			format : 'yyyy-mm-dd'
 		});
-	});
-	$(function() {
 		$("#leaveToDateId").datepicker({
 			format : 'yyyy-mm-dd'
 		});
@@ -30,28 +40,32 @@
 			<legend>Apply Leave</legend>
 			<div>
 				<div class="col-lg-10">
-					From Date:
+					<label for ="FromDate"><spring:message code="FromDate"/></label>
 					<form:input id="leaveFromDateId" path="leaveFromDate" type="text"
 						class="form:input-large" />
+						<form:errors path="leaveFromDate"></form:errors>
 				</div>
 			</div>
 
 			<div>
 				<div class="col-lg-10">
-					To Date:
+					<label for ="ToDate"><spring:message code="ToDate"/></label>
 					<form:input id="leaveToDateId" path="leaveToDate" type="text"
 						class="form:input-large" />
+						<form:errors path="leaveToDate"></form:errors>
 				</div>
 			</div>
 			<div>
 
 				<div class="col-lg-10">
-					Description:
+					
+					<label for ="Description"><spring:message code="Description"/></label>
 					<form:textarea id="description" path="description" type="text"
 						class="form:input-large" />
+						<form:errors path="description"></form:errors>
 				</div>
 			</div>
-			<div class="form-group">
+			<div>
 				<div class="col-lg-offset-2 col-lg-10">
 					<input type="submit" id="applyleaveId" class="btn btn-primary"
 						value="Apply Leave" />
@@ -59,18 +73,7 @@
 			</div>
 		</fieldset>
 	</form:form>
-	<div>
-		<h2>List of holidays</h2>
-
-		<c:if test="${not empty holidaysList}">
-
-			<ul>
-				<c:forEach var="listValue" items="${holidaysList}">
-					<li>${listValue.holidayDate}${listValue.reason}</li>
-				</c:forEach>
-			</ul>
-
-		</c:if>
-	</div>
+	
+	
 </body>
 </html>

@@ -18,36 +18,32 @@
 	src="<spring:url value="/resource/js/leave.js"/>"></script>
 <body>
 	<h2>List of Leaves</h2>
-	<table id="leaveId" cellpadding="0" cellspacing="0" border="1">
+	<table id="leaveId"  border="1">
 		<thead>
 			<tr>
 				<th>Applicant Name</th>
 				<th>Applied Date</th>
 				<th>leave from</th>
 				<th>leave to</th>
-				<th>No of days</th>
 				<th>description</th>
 				<th>Approve</th>
 				<th>Reject</th>
-				<th>Forward</th>
 			</tr>
 		</thead>
 		<tbody>
+		
 			<c:forEach var="listValue" items="${leaveList}">
 				<tr>
-					<td></td>
+					<td>${listvalue.leaveid}</td>
 					<td>${listValue.appliedDate}</td>
 					<td>${listValue.leaveFromDate}</td>
 					<td>${listValue.leaveToDate}</td>
-					<td>3</td>
 					<td>${listValue.description}</td>
-					<td><input type="button" value="approve"
-						onclick="approveCall(${listValue.leaveid});"></td>
-					<td><input type="button" value="reject"
-						onclick="rejectCall(${listValue.leaveid});"></td>
-					<td><input type="button" value="forward"
-						onclick="forwardCall(${listValue.leaveid});"></td>
-
+					<td><input type="button" id="approveId${listvalue.leaveid}"
+						value="approve${listvalue.leaveid}" onclick="approveCall(${listvalue.leaveid});"></td>
+					<td><input type="button" id="rejectId${istvalue.leaveid}"
+						value="reject" onclick="rejectCall(${listvalue.leaveid});"></td>
+					
 				</tr>
 			</c:forEach>
 		</tbody>
